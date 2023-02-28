@@ -1,22 +1,24 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 defineProps<{
   msg: string
 }>()
 
-const count = ref(0)
+const count = ref({ number: 0 })
 
 const increment = () => {
-  count.value++
+  count.value.number++
 }
 
 const decrement = () => {
-  count.value--
+  count.value.number--
 }
+
+const positive = computed(() => count.value.number > 0)
 </script>
 <template>
-  <div>
+  <div :class="{ active: positive || count.number === 0 }">
     <h1>{{ msg }}</h1>
     <div class="flex gap-2 items-center">
       <button
@@ -25,7 +27,7 @@ const decrement = () => {
       >
         -
       </button>
-      <span class="min-w-[2rem] text-center">{{ count }}</span>
+      <span class="min-w-[2rem] text-center">{{ count.number }}</span>
       <button
         class="py-2 px-4 bg-white hover:bg-white/80 cursor-pointer text-black rounded-md"
         @click="increment"
@@ -36,4 +38,8 @@ const decrement = () => {
   </div>
 </template>
 
-<style></style>
+<style scoped>
+.active {
+  background-color: blueviolet;
+}
+</style>
