@@ -1,13 +1,11 @@
 <script setup lang="ts">
 defineProps<{
-  msg: string
+  msg: number
 }>()
 </script>
 
 <template>
   <div class="greetings">
-    <h1>{{ msg }}</h1>
+    <h1>{{ msg + 7 }}</h1>
   </div>
-   
 </template>
-
