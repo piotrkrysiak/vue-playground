@@ -35,10 +35,10 @@ onMounted(() => {
 
 <template>
   <div class="about">
-    <h1 class="bg-red">This is an about page</h1>
+    <h1 class="px-5 lg:px-10 text-white text-2xl lg:text-5xl">Pokemon Grid Page</h1>
     <div
       v-if="pokemonList21.length > 0 && !error"
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-5 md:px-10 2xl:px-0 gap-4 max-w-7xl mx-auto"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-5 md:px-10 2xl:px-0 gap-4 max-w-7xl mx-auto py-6 lg:py-8"
     >
       <PokemonCard
         v-for="pokemon in pokemonList21"
