@@ -6,7 +6,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 <template>
   <header>
     <div class="wrapper">
-      <HelloWorld v-bind:msg="5" />
+      <HelloWorld msg="Hello Word" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
