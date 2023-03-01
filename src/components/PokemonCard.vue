@@ -1,29 +1,22 @@
-<script lang="ts">
-export default {
-  name: 'PokemonCard',
-  props: {
-    id: {
-      type: Number,
-      required: true
-    },
-    name: {
-      type: String,
-      default: 'Pokemon'
-    },
-    url: {
-      type: String,
-      default: 'https://via.placeholder.com/150'
-    }
-  }
-}
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const props = defineProps<{
+  id: number
+  name: string
+  url: string
+}>()
+
+const imageUrl = computed(() => {
+  return `https://jherr-pokemon.s3.us-west-1.amazonaws.com/${props.url}`
+})
 </script>
+
 <template>
   <div
     class="aspect-square p-10 rounded-2xl bg-slate-400 shadow-2xl hover:shadow-sm hover:bg-slate-400/80"
   >
     <h1>{{ name }}</h1>
-    <img :src="url" alt="pokemon" />
+    <img :src="imageUrl" alt="pokemon" />
   </div>
 </template>
-
-<style lang=""></style>

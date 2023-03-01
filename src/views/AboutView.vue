@@ -5,7 +5,7 @@ import PokemonCard from '@/components/PokemonCard.vue'
 interface Pokemon {
   id: number
   name: string
-  url: string
+  image: string
 }
 
 const pokemonList = ref<Pokemon[]>([])
@@ -14,12 +14,9 @@ const getPokemon = async () => {
   const res = await fetch('https://jherr-pokemon.s3.us-west-1.amazonaws.com/index.json')
   pokemonList.value = await res.json()
 }
-
 const pokemonList21 = computed(() => {
   return pokemonList.value.slice(0, 21)
 })
-
-console.log('pokemon:', pokemonList21.value)
 
 onMounted(() => {
   getPokemon()
@@ -35,8 +32,9 @@ onMounted(() => {
       <PokemonCard
         v-for="pokemon in pokemonList21"
         :key="pokemon.id"
+        :id="pokemon.id"
         :name="pokemon.name"
-        :url="pokemon.url"
+        :url="pokemon.image"
       />
     </div>
   </div>
