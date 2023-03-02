@@ -12,14 +12,16 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/about',
-      name: 'about',
-      component: PokemonView
+      path: '/pokemon',
+      name: 'pokemon',
+      component: PokemonView,
+      props: true
     },
     {
       path: '/pokemon/:id',
-      name: 'pokemon',
-      component: PokemonDetailsView
+      name: 'pokemonDetails',
+      component: PokemonDetailsView,
+      props: true
     }
   ]
 })

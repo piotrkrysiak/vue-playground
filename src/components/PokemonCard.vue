@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+
 defineProps<{
   id: number
   name: string
@@ -7,7 +9,12 @@ defineProps<{
 </script>
 
 <template>
-  <RouterLink :to="`/pokemon/${id}`">
+  <!-- pass params name = test -->
+  <RouterLink
+    :to="{
+      path: `/pokemon/${id}`
+    }"
+  >
     <div
       class="aspect-square p-6 md:p-8 lg:p-10 rounded-2xl bg-white shadow-2xl hover:shadow-sm hover:scale-[1.015] transform transition-all duration-300 ease-in-out hover:bg-white"
     >
